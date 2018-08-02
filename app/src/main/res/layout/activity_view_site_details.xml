@@ -11,6 +11,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1">
         <ImageView
+            android:id="@+id/detail_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/makkah"
@@ -26,12 +27,14 @@
         android:paddingTop="20dp"
         android:orientation="vertical">
         <TextView
+            android:id="@+id/detail_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Makkah"
             android:textColor="@android:color/black"
             android:textSize="20dp"/>
         <TextView
+            android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Today Forecast"/>
@@ -53,6 +56,7 @@
             android:layout_height="wrap_content"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:progress="25"/>
+
     </LinearLayout>
 
     <LinearLayout

@@ -5,9 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.GridView;
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,16 +18,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ViewSiteDetails.class);
+                intent.putExtra("site", "makka");
                 startActivity(intent);
             }
         });
-
 
         CardView madinah = (CardView)findViewById(R.id.madinah);
         madinah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ViewSiteDetails.class);
+                intent.putExtra("site", "madinah");
                 startActivity(intent);
             }
         });
@@ -40,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ViewSiteDetails.class);
+                intent.putExtra("site", "mina");
                 startActivity(intent);
             }
         });
@@ -49,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ViewSiteDetails.class);
+                intent.putExtra("site", "arafat");
                 startActivity(intent);
             }
         });
@@ -58,15 +58,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ViewSiteDetails.class);
-                startActivity(intent);
-            }
-        });
-
-        CardView minacamps = (CardView)findViewById(R.id.minacamps);
-        minacamps.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ViewSiteDetails.class);
+                intent.putExtra("site", "muzdalifah");
                 startActivity(intent);
             }
         });
@@ -76,15 +68,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ViewSiteDetails.class);
-                startActivity(intent);
-            }
-        });
-
-        CardView slaughter = (CardView)findViewById(R.id.slaughterhouse);
-        slaughter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ViewSiteDetails.class);
+                intent.putExtra("site", "jamratstoning");
                 startActivity(intent);
             }
         });

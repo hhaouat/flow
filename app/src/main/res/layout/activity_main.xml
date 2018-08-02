@@ -91,6 +91,7 @@ android:layout_height="match_parent"
     </RelativeLayout>
 
     </LinearLayout>
+    
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -122,7 +123,7 @@ android:layout_height="match_parent"
                     android:orientation="vertical">
 
                     <ImageView
-                        android:src="@drawable/greenmecca"
+                        android:src="@drawable/mecca_g"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
                         android:layout_gravity="center_horizontal"
@@ -189,7 +190,7 @@ android:layout_height="match_parent"
                     android:orientation="vertical">
 
                     <ImageView
-                        android:src="@drawable/greenmena"
+                        android:src="@drawable/mena_g"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
                         android:layout_gravity="center_horizontal"
@@ -222,7 +223,7 @@ android:layout_height="match_parent"
                     android:orientation="vertical">
 
                     <ImageView
-                        android:src="@drawable/greenarafa"
+                        android:src="@drawable/arafa_g"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
                         android:layout_gravity="center_horizontal"
@@ -255,7 +256,7 @@ android:layout_height="match_parent"
                     android:orientation="vertical">
 
                     <ImageView
-                        android:src="@drawable/jamarat_g"
+                        android:src="@drawable/muzdalifah_g"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
                         android:layout_gravity="center_horizontal"
@@ -273,37 +274,6 @@ android:layout_height="match_parent"
             </android.support.v7.widget.CardView>
 
             <!--1st column-->
-            <android.support.v7.widget.CardView
-                android:id="@+id/minacamps"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal|center_vertical"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:src="@drawable/greenmena"
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
-                        android:layout_gravity="center_horizontal"
-                        android:textAlignment="center" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Me"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="18sp"/>
-                </LinearLayout>
-
-            </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
                 android:id="@+id/jamratstoning"
@@ -336,38 +306,11 @@ android:layout_height="match_parent"
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
-            <android.support.v7.widget.CardView
-                android:id="@+id/slaughterhouse"
-                android:layout_width="0dp"
+            <LinearLayout  android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                >
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal|center_vertical"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:src="@drawable/yellomecca"
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
-                        android:layout_gravity="center_horizontal"
-                        android:textAlignment="center" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Me"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="18sp"/>
-                </LinearLayout>
-
-            </android.support.v7.widget.CardView>
+                android:layout_rowWeight="1">
+            </LinearLayout>
 
         </GridLayout>
     </LinearLayout>
