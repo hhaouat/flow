@@ -1,0 +1,15 @@
+{ "items":{
+      "sites": [
+            {"makkah": "New", "time": "", "currentNumPilm":"54999", "date": "", "maxPilm": "70000"},
+            {"madinah": "New", "time": "", "currentNumPilm":"20000", "date": "", "maxPilm": "70000"},
+            {"mina": "New", "time": "", "currentNumPilm":"12000", "date": "", "maxPilm": "70000"},
+            {"arafat": "New", "time": "", "currentNumPilm":"57899", "date": "", "maxPilm": "70000"},
+            {"muzdalifah": "New", "time": "", "currentNumPilm":"54999", "date": "", "maxPilm": "70000"},
+            {"minaCamps": "New", "time": "", "currentNumPilm":"60000", "date": "", "maxPilm": "70000"},
+            {"jamratstoning": "New", "time": "", "currentNumPilm":"30000", "date": "", "maxPilm": "70000"},
+            {"slaugterHouse": "New", "time": "", "currentNumPilm":"60000", "date": "", "maxPilm": "70000"}
+            ],
+      "timestamp":"2018-07-23T18:25:43.511Z"
+      }
+}
+
