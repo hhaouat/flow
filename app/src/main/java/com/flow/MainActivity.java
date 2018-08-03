@@ -2,9 +2,11 @@ package com.flow;
 
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,16 +23,20 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.math.BigDecimal;
+import java.math.MathContext;
+import java.util.Random;
+import java.util.StringTokenizer;
 
 
 public class MainActivity extends AppCompatActivity {
-    ImageView img1, img2, img3, img4, img5, img6, img7, img8;
+    ImageView img1, img2, img3, img4, img5, img6;
+    SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         img1 = (ImageView)findViewById(R.id.main_img1);
         img2 = (ImageView)findViewById(R.id.main_img2);
@@ -38,15 +44,48 @@ public class MainActivity extends AppCompatActivity {
         img4 = (ImageView)findViewById(R.id.main_img4);
         img5 = (ImageView)findViewById(R.id.main_img5);
         img6 = (ImageView)findViewById(R.id.main_img6);
-        img7 = (ImageView)findViewById(R.id.main_img7);
-        img8 = (ImageView)findViewById(R.id.main_img8);
 
+        swipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.articles_swiperefreshlayout);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                swipeRefreshLayout.setRefreshing(false);
+                Random r = new Random();
+                try{
+                    String filename = "hajjdata"+r.nextInt(3) + ".json";
+                    double percentage = 0.0;
+
+                    percentage = getPercentageByCityName(filename,Helper.cityNames.makkah.toString());
+                    setImageColoring(percentage,Helper.cityNames.makkah.toString());
+
+                    percentage = getPercentageByCityName(filename,Helper.cityNames.madinah.toString());
+                    setImageColoring(percentage,Helper.cityNames.madinah.toString());
+
+                    percentage = getPercentageByCityName(filename,Helper.cityNames.mina.toString());
+                    setImageColoring(percentage,Helper.cityNames.mina.toString());
+
+                    percentage = getPercentageByCityName(filename,Helper.cityNames.arafat.toString());
+                    setImageColoring(percentage,Helper.cityNames.arafat.toString());
+
+                    percentage = getPercentageByCityName(filename,Helper.cityNames.muzdalifah.toString());
+                    setImageColoring(percentage,Helper.cityNames.muzdalifah.toString());
+
+                    percentage = getPercentageByCityName(filename,Helper.cityNames.jamratstoning.toString());
+                    setImageColoring(percentage,Helper.cityNames.jamratstoning.toString());
+
+                    //Toast.makeText(MainActivity.this, String.valueOf(percentage), Toast.LENGTH_SHORT).show();
+
+                }catch(Exception ex){
+                    ex.printStackTrace();
+                }
+            }
+        });
 
         //providing the color changes based on the crowd
-        int count = Helper.cityNames.values().length;
+        /*int count = Helper.cityNames.values().length;
         for(int i=0; i<count; i++){
-            setImageColoring(getPercentageByCityName(Helper.cityNames.values()[i].toString()),Helper.cityNames.values()[i].toString());
-        }
+            //setImageColoring(getPercentageByCityName(Helper.cityNames.values()[i].toString()),Helper.cityNames.values()[i].toString());
+        }*/
 
         CardView makkah = (CardView)findViewById(R.id.makkah);
         makkah.setOnClickListener(new View.OnClickListener() {
@@ -135,10 +174,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private double getPercentageByCityName(String cityName){
+    private double getPercentageByCityName(String filename, String cityName){
         double result = 0.0;
         try{
-            InputStream in = getResources().getAssets().open("hajjdata0.json");
+            InputStream in = getResources().getAssets().open(filename);
             BufferedReader br = new BufferedReader(new InputStreamReader(in));
             String s;
             StringBuilder sb = new StringBuilder();
@@ -153,9 +192,15 @@ public class MainActivity extends AppCompatActivity {
             for(int i=0; i<jsonArray.length(); i++){
                 JSONObject jsonObject1 = (JSONObject)jsonArray.get(i);
                 if(jsonObject1.getString("name").equals(cityName)){
-                    long maxNumPilgrim = jsonObject1.getLong("currentNumPilm");
-                    long currentNumPil = jsonObject1.getLong("maxPilm");
-                    result = (Double.valueOf(currentNumPil)/Double.valueOf(maxNumPilgrim)) * 100.0;
+                    double maxNumPilgrim = jsonObject1.getLong("currentNumPilm");
+                    double currentNumPil = jsonObject1.getLong("maxPilm");
+
+                    BigDecimal d1 = new BigDecimal(maxNumPilgrim);
+                    BigDecimal d2 = new BigDecimal(currentNumPil);
+
+
+                    //Toast.makeText(this, String.valueOf(d1.divide(d2,new MathContext(4))), Toast.LENGTH_SHORT).show();
+                    result = d1.divide(d2,new MathContext(4)).doubleValue();
                 }
             }
         }catch(Exception ex){
@@ -167,63 +212,50 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setImageColoring(double colorValue, String cityName){
-        if(colorValue >= 60){
+        if(colorValue >= 0.6){
             //set red
             if(cityName.equals(Helper.cityNames.makkah.toString())) {
-                // set first image red
-                //img1.setImageDrawable((BitmapDrawable)R.drawable.mecca);
+                img1.setImageDrawable(getDrawable(R.drawable.mecca_r));
             }else if(cityName.equals(Helper.cityNames.madinah.toString())){
                 img2.setImageDrawable(getDrawable(R.drawable.madina_r));
-            }else if(cityName.equals(Helper.cityNames.arafat.toString())){
-                img3.setImageDrawable(getDrawable(R.drawable.redarafa));
             }else if(cityName.equals(Helper.cityNames.mina.toString())){
-                //img4.setImageDrawable(getDrawable(R.drawable.mi));
+                img3.setImageDrawable(getDrawable(R.drawable.mena_r));
+            }else if(cityName.equals(Helper.cityNames.arafat.toString())){
+                img4.setImageDrawable(getDrawable(R.drawable.arafa_r));
             }else if(cityName.equals(Helper.cityNames.muzdalifah.toString())){
-                //img5.setImageDrawable(getDrawable(R.drawable.));
-            }else if(cityName.equals(Helper.cityNames.slaugterHouse.toString())){
-                //img6.setImageDrawable(getDrawable(R.drawable.sl));
-            }else if(cityName.equals(Helper.cityNames.minaCamps.toString())){
-                img7.setImageDrawable(getDrawable(R.drawable.madina_r));
-            }else{
-                //img8.setImageDrawable(getDrawable(R.drawable.jamrah));
+                img5.setImageDrawable(getDrawable(R.drawable.muzdalifah_r));
+            }else if(cityName.equals(Helper.cityNames.jamratstoning.toString())){
+                img6.setImageDrawable(getDrawable(R.drawable.jamarat_r));
             }
-        }else if(colorValue >= 45){
+        }else if(colorValue >= 0.45){
             //set yellow
             if(cityName.equals(Helper.cityNames.makkah.toString())) {
-                img1.setImageDrawable(getDrawable(R.drawable.yellomecca));
+                img1.setImageDrawable(getDrawable(R.drawable.mecca_y));
             }else if(cityName.equals(Helper.cityNames.madinah.toString())){
                 img2.setImageDrawable(getDrawable(R.drawable.madina_y));
-            }else if(cityName.equals(Helper.cityNames.arafat.toString())){
-                img3.setImageDrawable(getDrawable(R.drawable.yellowarafa));
             }else if(cityName.equals(Helper.cityNames.mina.toString())){
-                //img4.setImageDrawable(getDrawable(R.drawable.));
+                img3.setImageDrawable(getDrawable(R.drawable.mena_y));
+            }else if(cityName.equals(Helper.cityNames.arafat.toString())){
+                img4.setImageDrawable(getDrawable(R.drawable.arafa_y));
             }else if(cityName.equals(Helper.cityNames.muzdalifah.toString())){
-                //img5.setImageDrawable(getDrawable(R.drawable.mus));
-            }else if(cityName.equals(Helper.cityNames.slaugterHouse.toString())){
-                //img6.setImageDrawable(getDrawable(R.drawable.sla));
-            }else if(cityName.equals(Helper.cityNames.minaCamps.toString())){
-                img7.setImageDrawable(getDrawable(R.drawable.madina_y));
-            }else{
-                img8.setImageDrawable(getDrawable(R.drawable.jamarat_y));
+                img5.setImageDrawable(getDrawable(R.drawable.muzdalifah_y));
+            }else if(cityName.equals(Helper.cityNames.jamratstoning.toString())){
+                img6.setImageDrawable(getDrawable(R.drawable.jamarat_y));
             }
         }else{
             //set green
             if(cityName.equals(Helper.cityNames.makkah.toString())) {
-                img1.setImageDrawable(getDrawable(R.drawable.greenmecca));
+                img1.setImageDrawable(getDrawable(R.drawable.mecca_g));
             }else if(cityName.equals(Helper.cityNames.madinah.toString())){
                 img2.setImageDrawable(getDrawable(R.drawable.madina_g));
-            }else if(cityName.equals(Helper.cityNames.arafat.toString())){
-                img3.setImageDrawable(getDrawable(R.drawable.greenarafa));
             }else if(cityName.equals(Helper.cityNames.mina.toString())){
-                //img4.setImageDrawable(getDrawable(R.drawable.min));
+                img3.setImageDrawable(getDrawable(R.drawable.mena_g));
+            }else if(cityName.equals(Helper.cityNames.arafat.toString())){
+                img4.setImageDrawable(getDrawable(R.drawable.arafa_g));
             }else if(cityName.equals(Helper.cityNames.muzdalifah.toString())){
-                //img5.setImageDrawable(getDrawable(R.drawable.mus));
-            }else if(cityName.equals(Helper.cityNames.slaugterHouse.toString())){
-                //img6.setImageDrawable(getDrawable(R.drawable.sla));
-            }else if(cityName.equals(Helper.cityNames.minaCamps.toString())){
-                img7.setImageDrawable(getDrawable(R.drawable.madina_g));
-            }else{
-                img8.setImageDrawable(getDrawable(R.drawable.jamarat_g));
+                img5.setImageDrawable(getDrawable(R.drawable.muzdalifah_g));
+            }else if(cityName.equals(Helper.cityNames.jamratstoning.toString())){
+                img6.setImageDrawable(getDrawable(R.drawable.jamarat_g));
             }
         }
     }

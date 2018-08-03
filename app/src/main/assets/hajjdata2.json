@@ -1,0 +1,36 @@
+{
+	"sites" : [{
+		"name" : "makkah",
+		"currentNumPilm" : 964,
+		"maxPilm" : 70000
+	},{
+		"name" : "madinah",
+		"currentNumPilm" : 3900,
+		"maxPilm" : 70000
+	},{
+		"name" : "mina",
+		"currentNumPilm": 9200,
+		"maxPilm":70000
+	},{
+		"name" : "arafat",
+		"currentNumPilm" : 3490,
+		"maxPilm" : 70000
+	},{
+		"name" : "muzdalifah",
+		"currentNumPilm" : 4535,
+		"maxPilm" : 70000
+	},{
+		"name" : "minaCamps",
+		"currentNumPilm" : 12548,
+		"maxPilm" : 70000
+	},{
+		"name" : "jamratstoning",
+		"currentNumPilm" : 3069,
+		"maxPilm" : 70000
+	},{
+		"name" : "slaugterHouse",
+		"currentNumPilm" : 5910,
+		"maxPilm" : 70000
+	}]
+}
+
