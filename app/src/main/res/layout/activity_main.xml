@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.SwipeRefreshLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-android:id="@+id/articles_swiperefreshlayout"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/articles_swiperefreshlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@drawable/skyline">
     <LinearLayout
         android:layout_width="wrap_content"
@@ -76,22 +76,23 @@ android:layout_height="match_parent"
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:text="1440"
                 android:textSize="15sp"/>
         </LinearLayout>
     </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_weight="1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="right"
-        android:padding="10dp">
-    </RelativeLayout>
 
     </LinearLayout>
-    
+        <LinearLayout
+            android:id="@+id/banner"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/white">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/stc"/>
+        </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -104,7 +105,7 @@ android:layout_height="match_parent"
             android:rowCount="2"
             android:alignmentMode="alignMargins"
             android:columnOrderPreserved="false"
-            android:padding="14dp">
+            android:padding="20dp">
 
             <!--1st row-->
             <!--1st column-->
@@ -113,21 +114,22 @@ android:layout_height="match_parent"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_columnWeight="1"
-                android:layout_rowWeight="1">
+                android:layout_rowWeight="1"
+                >
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal|center_vertical"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical">
+                    >
 
                     <ImageView
                         android:src="@drawable/mecca_g"
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:layout_gravity="center_horizontal"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:layout_marginRight="10dp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -151,22 +153,21 @@ android:layout_height="match_parent"
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_horizontal|center_vertical"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical">
+                    android:gravity="center_horizontal|center_vertical">
 
                     <ImageView
                         android:id="@+id/imageView"
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:layout_gravity="center_horizontal"
                         android:src="@drawable/madina_y"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:layout_marginRight="10dp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Mina"
+                        android:text="Madinah"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="18sp"/>
@@ -185,21 +186,20 @@ android:layout_height="match_parent"
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_horizontal|center_vertical"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical">
+                    android:gravity="center_horizontal|center_vertical">
 
                     <ImageView
                         android:src="@drawable/mena_g"
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:layout_gravity="center_horizontal"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:layout_marginRight="10dp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Me"
+                        android:text="Mena"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="18sp"/>
@@ -219,20 +219,20 @@ android:layout_height="match_parent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal|center_vertical"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical">
+                   >
 
                     <ImageView
                         android:src="@drawable/arafa_g"
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:layout_gravity="center_horizontal"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:layout_marginRight="10dp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Me"
+                        android:text="Arafat"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="18sp"/>
@@ -252,20 +252,20 @@ android:layout_height="match_parent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal|center_vertical"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical">
+                    >
 
                     <ImageView
                         android:src="@drawable/muzdalifah_g"
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:layout_gravity="center_horizontal"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:layout_marginRight="10dp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Me"
+                        android:text="Muzdalifah"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="18sp"/>
@@ -285,27 +285,28 @@ android:layout_height="match_parent"
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_horizontal|center_vertical"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical">
+                    android:gravity="center_horizontal|center_vertical">
 
                     <ImageView
-                        android:src="@drawable/jamarat_g2"
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
+                        android:src="@drawable/jamarat_g"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:layout_gravity="center_horizontal"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:layout_marginRight="10dp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Me"
+                        android:text="Jamarat"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="18sp"/>
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
+
+
             <LinearLayout  android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_columnWeight="1"
