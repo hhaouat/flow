@@ -11,8 +11,6 @@ public class Helper {
         mina,
         arafat,
         muzdalifah,
-        minaCamps,
         jamratstoning,
-        slaugterHouse
     }
 }

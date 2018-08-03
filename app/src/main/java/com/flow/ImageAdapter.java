@@ -33,9 +33,6 @@ public class ImageAdapter extends BaseAdapter {
             imageView.setLayoutParams(
                     new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
-
-
-
         } else {
             imageView = (ImageView) convertView;
         }
@@ -46,12 +43,11 @@ public class ImageAdapter extends BaseAdapter {
 
     // references to our images
     private Integer[] mThumbIds = {
-            R.drawable.greenarafa, R.drawable.greenmena,
-            R.drawable.yellowmena, R.drawable.redarafa,
-            R.drawable.redmena, R.drawable.greenmecca,
-            R.drawable.yellomecca, R.drawable.yellowmena,
-            R.drawable.greenarafa, R.drawable.greenarafa,
-
+            R.drawable.arafa_g, R.drawable.mena_g,
+            R.drawable.mena_y, R.drawable.arafa_r,
+            R.drawable.mena_r, R.drawable.mecca_g,
+            R.drawable.mecca_y, R.drawable.mena_y,
+            R.drawable.arafa_g, R.drawable.arafa_g,
     };
 
 }

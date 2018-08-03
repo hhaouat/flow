@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         img1 = (ImageView)findViewById(R.id.main_img1);
         img2 = (ImageView)findViewById(R.id.main_img2);
         img3 = (ImageView)findViewById(R.id.main_img3);
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ViewSiteDetails.class);
+                intent.putExtra("site", "makka");
                 startActivity(intent);
             }
         });
@@ -62,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ViewSiteDetails.class);
+                intent.putExtra("site", "madinah");
                 startActivity(intent);
             }
         });
@@ -71,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ViewSiteDetails.class);
+                intent.putExtra("site", "mina");
                 startActivity(intent);
             }
         });
@@ -80,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ViewSiteDetails.class);
+                intent.putExtra("site", "arafat");
                 startActivity(intent);
             }
         });
@@ -89,15 +94,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ViewSiteDetails.class);
-                startActivity(intent);
-            }
-        });
-
-        CardView minacamps = (CardView)findViewById(R.id.minacamps);
-        minacamps.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ViewSiteDetails.class);
+                intent.putExtra("site", "muzdalifah");
                 startActivity(intent);
             }
         });
@@ -107,20 +104,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ViewSiteDetails.class);
+                intent.putExtra("site", "jamratstoning");
                 startActivity(intent);
             }
         });
-
-        CardView slaughter = (CardView)findViewById(R.id.slaughterhouse);
-        slaughter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ViewSiteDetails.class);
-                startActivity(intent);
-            }
-        });
-
-        //Toast.makeText(this, String.valueOf(getPercentageByCityName("makkah")), Toast.LENGTH_SHORT).show();
 
         //JSONObject obj = new JSONObject(sb.toString());
         //Toast.makeText(MainActivity.this, obj.get("Year").toString(), Toast.LENGTH_SHORT).show();
